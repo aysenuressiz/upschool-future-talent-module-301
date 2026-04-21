@@ -1,0 +1,23 @@
+version: 1
+dashboards:
+  - name: unishelf-mvp
+    widgets:
+      - id: ocr-confidence
+        title: OCR Confidence
+        metric: unishelf.ocr.confidence
+        aggregator: avg
+        threshold: 0.85
+      - id: sync-latency-p95
+        title: Sync Latency p95
+        metric: unishelf.sync.latency_ms
+        aggregator: p95
+        threshold: 500
+      - id: backend-errors
+        title: Backend Error Rate
+        metric: unishelf.api.error_rate
+        aggregator: avg
+      - id: battery-impact
+        title: Battery Impact
+        metric: unishelf.mobile.battery_percent_per_hour
+        aggregator: avg
+        threshold: 2

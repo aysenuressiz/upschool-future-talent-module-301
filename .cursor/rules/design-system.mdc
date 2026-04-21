@@ -1,0 +1,255 @@
+---
+description: Visual design system rules. Apply to every screen, every component, every UI decision.
+globs: ["**/*.tsx", "**/*.jsx", "**/*.ts", "**/*.css", "**/*.scss"]
+alwaysApply: true
+---
+
+# Design System — Visual Language
+
+## COLORS
+
+Two modes, same token names. Never use raw hex values in code — always reference tokens.
+
+### Dark Mode
+```
+background.base      #0D1B2A
+background.layer     #1A2A3A
+background.float     #243447
+surface              #2E4057
+
+accent.warm          #F4A261
+accent.hot           #E76F51
+accent.cool          #2A9D8F
+
+text.primary         #F0EAD6
+text.secondary       #A8B2C0
+text.muted           #5C6E82
+
+border               #1E3248
+star                 #F4A261
+```
+
+### Light Mode
+```
+background.base      #FAF7F2
+background.layer     #F0EBE1
+background.float     #FFFFFF
+surface              #EDE4D8
+
+accent.warm          #2D6A4F
+accent.hot           #1B4332
+accent.cool          #2A9D8F
+
+text.primary         #1A1A1A
+text.secondary       #5C5C5C
+text.muted           #9E9E9E
+
+border               #DDD5C8
+star                 #E8A838
+```
+
+---
+
+## TYPOGRAPHY
+
+Three font roles. They never substitute each other.
+
+```
+DISPLAY   Playfair Display, serif, weight 700
+          → App name, hero title, onboarding headline
+          → letter-spacing: -0.02em
+
+HEADING   DM Serif Display, serif, weight 400
+          → Section titles, screen titles, card titles
+          → letter-spacing: -0.01em
+
+BODY      DM Sans, sans-serif, weight 400 / 500 / 600
+          → Everything else: description, button, label, meta
+          → letter-spacing: 0
+```
+
+### Size Scale
+```
+2xs   11px  lh 1.4    badge, timestamp
+xs    13px  lh 1.5    author name, meta, chip label
+sm    15px  lh 1.6    body text, description
+md    17px  lh 1.4    card title
+lg    20px  lh 1.3    section title
+xl    24px  lh 1.2    screen title
+2xl   30px  lh 1.1    hero text
+3xl   38px  lh 1.0    display / app name
+```
+
+**Rule:** Never use more than 3 different sizes on one screen. Build hierarchy with color and weight, not size jumps.
+
+**Rule:** Numbers and stats (14 books, 55%, 17-day streak) always use HEADING font at large size. Never body font.
+
+**Rule:** Button labels are always sentence case or Title Case. Never ALL CAPS.
+
+**Rule:** Body text is never bold. Use color difference for emphasis, not weight.
+
+---
+
+## SPACING
+
+4px grid. Never go outside this grid anywhere.
+
+```
+1  →   4px
+2  →   8px
+3  →  12px
+4  →  16px
+5  →  20px
+6  →  24px
+8  →  32px
+10 →  40px
+12 →  48px
+16 →  64px
+```
+
+- Horizontal screen edge padding: always **20px**
+- Vertical gap between sections: **28px**
+- Card inner padding: **16px**
+
+---
+
+## BORDER RADIUS
+
+```
+xs      4px     small inline tag
+sm      8px     input field, small element
+md     12px     small card
+lg     16px     standard card
+xl     20px     large card
+2xl    24px     modal, bottom sheet, drawer
+full  9999px    pill button, avatar, badge, progress bar
+book    8px     book cover — this token never changes
+```
+
+---
+
+## SHADOWS
+
+```
+sm    0 2px  8px  rgba(0,0,0,0.15)   card
+md    0 4px  16px rgba(0,0,0,0.25)   book cover, elevated card
+lg    0 8px  32px rgba(0,0,0,0.40)   modal, bottom sheet
+```
+
+- In dark mode: use shadows freely
+- In light mode: prefer border over shadow. Do not stack both.
+
+---
+
+## ICONS
+
+```
+Style       outlined, stroke-width 1.5–2px, no fill
+Sizes       20px nav bar   22px action   24px header
+Color       passive → text.muted     active → accent.warm
+Library     lucide-react or phosphor-icons
+```
+
+---
+
+## IMAGES
+
+### Book Cover
+```
+Aspect ratio   2:3 (width:height) — never change this
+Object-fit     cover
+Border radius  8px (book token)
+Shadow         md
+Missing cover  background.layer + centered book icon
+```
+
+### Avatar
+```
+Small    32px   border-radius full
+Medium   44px   border-radius full
+Large    64px   border-radius full
+Featured border: 2px solid accent.warm
+```
+
+### Hero / Banner Image
+```
+Aspect ratio   16:9 or 3:2
+Overlay        linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.85))
+               text always sits on top of the gradient, never on the raw image
+```
+
+---
+
+## MOTION
+
+```
+Fast      150ms ease-out           button tap, chip select
+Normal    250ms ease-in-out        card, panel open/close
+Page      350ms ease-in-out        screen transition
+
+Easing    cubic-bezier(0.4, 0, 0.2, 1)
+
+Bottom sheet    translateY(100%) → translateY(0), 300ms
+Card press      scale(0.97), 150ms
+Progress fill   width 400ms ease
+```
+
+---
+
+## HUMAN TOUCH RULES
+
+These rules are the difference between AI output and hand-crafted UI. Apply them on every screen.
+
+### Asymmetry & Breathing Room
+- Sections do not need to be the same height. Let content dictate.
+- One featured item can be full-width while others sit in a small grid below.
+- Generous negative space in one area balances density in another.
+
+### Accent Color Economy
+- accent.warm appears maximum 2–3 times per screen.
+- Never spread it across every icon, button, and label at once.
+- When overused, it loses all meaning. Restraint makes it powerful.
+
+### Gradient Discipline
+- Gradients go from transparent to color, not from color to color.
+- Overlay gradients exist for readability only — not decoration.
+- A very subtle noise texture on backgrounds (opacity 0.03–0.06) adds realism. Use it.
+
+### Typography Confidence
+- When using DISPLAY font, go big. Be bold. Do not shrink it to play safe.
+- Tracking (letter-spacing) on display text should be tight, not open.
+- Card titles that exceed 2 lines get line-clamp. Never let them overflow into a third line.
+
+### Layer Contrast
+- Background layers should shift subtly, not abruptly.
+- The difference between background.base and background.layer should be visible but calm.
+- Never jump from very dark to white in adjacent elements.
+
+---
+
+## ACCESSIBILITY (non-negotiable)
+
+```
+Touch target minimum    44 × 44px
+Contrast normal text    4.5 : 1
+Contrast large text     3.0 : 1
+Minimum font size       11px
+Focus indicator         2px solid accent.warm, offset 3px
+```
+
+---
+
+## NEVER DO
+
+```
+✗  Use Inter, Roboto, or Arial — they read as generic
+✗  Purple gradient on white background — it is a cliché
+✗  Square aspect ratio for book covers
+✗  More than 4 color tones on one screen
+✗  ALL CAPS button labels
+✗  Shadow in light mode alongside border — pick one
+✗  Scatter accent color across every interactive element
+✗  Fixed-height cards — let content define height
+✗  Bold body text — use color for emphasis instead
+✗  Raw hex values in component code — use tokens
+```

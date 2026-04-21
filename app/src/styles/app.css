@@ -1,0 +1,60 @@
+:root {
+  color-scheme: dark;
+  --background-base: #0d1b2a;
+  --background-layer: #1a2a3a;
+  --text-primary: #f0ead6;
+  --accent-warm: #f4a261;
+  --error: #e76f51;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background-base);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.page {
+  padding: 20px;
+}
+
+.card {
+  border-radius: 16px;
+  background: var(--background-layer);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.shimmer {
+  opacity: 0.9;
+}
+
+.error {
+  border: 1px solid var(--error);
+}
+
+.shelf-scene {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.book-card {
+  min-height: 130px;
+  border: 0;
+  border-radius: 8px;
+  color: #111;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 250ms ease-in-out;
+}
+
+.book-card:focus-visible {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: 3px;
+}

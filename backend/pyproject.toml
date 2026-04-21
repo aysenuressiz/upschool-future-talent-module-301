@@ -1,0 +1,15 @@
+[project]
+name = "unishelf-backend"
+version = "0.1.0"
+description = "UNISHELF backend service"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+]

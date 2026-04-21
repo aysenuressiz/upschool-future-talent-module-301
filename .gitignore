@@ -1,0 +1,6 @@
+# Python cache artifacts
+__pycache__/
+*.pyc
+
+# Test and tooling caches
+.pytest_cache/

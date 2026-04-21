@@ -16,13 +16,14 @@ def test_isbn13_validator() -> None:
 
 
 def test_parallel_fetch_and_merge() -> None:
-  google, open_library, local = asyncio.run(
-    asyncio.gather(
+  async def _run() -> tuple[dict, dict, dict]:
+    return await asyncio.gather(
       fetch_google_books(isbn_13='9780306406157'),
       fetch_open_library(isbn_13='9780306406157'),
       fetch_local_publishers(isbn_13='9780306406157'),
     )
-  )
+
+  google, open_library, local = asyncio.run(_run())
   merged = merge_metadata(isbn_13='9780306406157', candidates=[google, open_library, local])
   assert merged['title']
   assert merged['page_count'] >= 1

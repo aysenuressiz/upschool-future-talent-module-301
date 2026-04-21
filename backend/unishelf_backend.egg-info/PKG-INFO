@@ -2,9 +2,9 @@ Metadata-Version: 2.4
 Name: unishelf-backend
 Version: 0.1.0
 Summary: UNISHELF backend service
-Requires-Python: >=3.11
-Requires-Dist: fastapi
-Requires-Dist: uvicorn[standard]
-Requires-Dist: pydantic>=2.7
+Requires-Python: >=3.10
+Requires-Dist: fastapi==0.111.0
+Requires-Dist: uvicorn[standard]==0.30.1
+Requires-Dist: pydantic[email]==2.8.2
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"

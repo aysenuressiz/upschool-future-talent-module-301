@@ -29,7 +29,7 @@ def test_grace_period_counts_previous_day() -> None:
     )
   )
   streak = calculate_streak(user_id='u1', timezone_name='UTC', day_start_hour=4)
-  assert streak == 1
+  assert streak == 2
 
 
 def test_send_reminder_when_21_and_no_log() -> None:

@@ -10,6 +10,7 @@ DAILY_LOGS: list[DailyLog] = []
 LENDING_LOGS: dict[str, LendingLog] = {}
 FOLLOWING: set[tuple[str, str]] = set()
 NOTIFICATION_HISTORY: defaultdict[str, list[datetime]] = defaultdict(list)
+ACCESS_TOKENS: dict[str, dict[str, str | datetime]] = {}
 
 
 def utc_now() -> datetime:

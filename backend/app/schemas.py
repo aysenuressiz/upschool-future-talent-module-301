@@ -73,3 +73,12 @@ class DayBoundarySettingsRequest(BaseModel):
   user_id: str
   timezone: str
   day_start_hour: int = Field(default=4, ge=0, le=23)
+
+
+class AccessTokenRequest(BaseModel):
+  user_id: str
+
+
+class AccessTokenResponse(BaseModel):
+  access_token: str
+  token_type: str = 'bearer'

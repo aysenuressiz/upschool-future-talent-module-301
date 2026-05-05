@@ -7,9 +7,9 @@ import type { ShelfBook } from '@/lib/types';
 import '@/styles/app.css';
 
 const books: ShelfBook[] = [
-  { id: '1', title: 'Deep Work', pageCount: 304, status: 'reading', dominantColor: '#F4A261' },
-  { id: '2', title: 'Atomic Habits', pageCount: 320, status: 'finished', dominantColor: '#2A9D8F' },
-  { id: '3', title: 'Clean Code', pageCount: 464, status: 'wishlist', dominantColor: '#E9C46A' },
+  { id: '1', title: 'Deep Work', pageCount: 304, status: 'reading', dominantColor: 'warm' },
+  { id: '2', title: 'Atomic Habits', pageCount: 320, status: 'finished', dominantColor: 'cool' },
+  { id: '3', title: 'Clean Code', pageCount: 464, status: 'wishlist', dominantColor: 'surface' },
 ];
 
 function App() {

@@ -18,19 +18,18 @@ export function ShelfScene({ books }: ShelfSceneProps) {
         <button
           key={book.id}
           type='button'
-          className='book-card'
+          className={`book-card book-card--${book.dominantColor}`}
           onClick={() => setActiveId(book.id)}
           style={{
-            width: `${Math.max(32, book.widthMm)}px`,
+            width: `${Math.max(44, book.widthMm)}px`,
             transform: `translate(${book.worldX}px, ${book.worldY}px) rotateY(${manager.getTiltRotationDeg(
               activeId === book.id
             )}deg)`,
-            background: book.dominantColor,
           }}
         >
-          <strong>{book.title}</strong>
-          <span>{book.status}</span>
-          <span>{book.pageCount} sayfa</span>
+          <h3 className='book-card-title'>{book.title}</h3>
+          <span className='book-card-meta'>{book.status}</span>
+          <span className='book-card-meta book-card-meta--count'>{book.pageCount} sayfa</span>
         </button>
       ))}
     </section>

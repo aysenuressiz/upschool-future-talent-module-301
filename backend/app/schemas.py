@@ -13,6 +13,16 @@ class AddBookRequest(BaseModel):
   current_page: int = 0
 
 
+class UpdateBookRequest(BaseModel):
+  title: str | None = None
+  author_id: str | None = None
+  genre: str | None = None
+  page_count: int | None = Field(default=None, ge=1)
+  spine_color_hex: str | None = None
+  average_rating: float | None = None
+  cover_url_high_res: str | None = None
+
+
 class DuplicateResolutionRequest(BaseModel):
   user_id: str
   book_id: str
@@ -27,11 +37,31 @@ class AddDailyLogRequest(BaseModel):
   timestamp_utc: datetime | None = None
 
 
+class UpdateDailyLogRequest(BaseModel):
+  pages_read: int | None = Field(default=None, ge=0)
+  session_duration_seconds: int | None = Field(default=None, ge=0)
+  timestamp_utc: datetime | None = None
+
+
 class LendBookRequest(BaseModel):
   book_owner_id: str
   borrower_name: str
   contact_info: str | None = None
   expected_return_date: datetime | None = None
+
+
+class UpdateLendingRequest(BaseModel):
+  borrower_name: str | None = None
+  contact_info: str | None = None
+  expected_return_date: datetime | None = None
+  return_status: Literal['lent', 'returned', 'overdue'] | None = None
+
+
+class UpdateLibraryItemRequest(BaseModel):
+  status: LibraryStatus | None = None
+  current_page: int | None = Field(default=None, ge=0)
+  shelf_position_index: int | None = Field(default=None, ge=0)
+  physical_shelf_no: int | None = Field(default=None, ge=1)
 
 
 class MetadataLookupRequest(BaseModel):

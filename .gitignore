@@ -8,3 +8,16 @@ __pycache__/
 # Frontend build artifacts
 frontend/node_modules/
 frontend/dist/
+
+# Root artifacts
+node_modules/
+dist/
+.DS_Store
+*.db
+
+# Virtual environments
+backend/.venv/
+backend/**/__pycache__/
+
+# Cursor local config
+.cursor/

@@ -2,16 +2,16 @@
 
 
 ### Home
-![Home](./public/screenshots/home.png)
+![Home](./frontend/public/screenshots/home.png)
 
 ### Library
-![Library](./public/screenshots/library.png)
+![Library](./frontend/public/screenshots/library.png)
 
 ### Scan
-![Scan](./public/screenshots/scan.png)
+![Scan](./frontend/public/screenshots/scan.png)
 
 ### Add
-![Add](./public/screenshots/add.png)
+![Add](./frontend/public/screenshots/add.png)
 
 ### Profile
-![Profile](./public/screenshots/profile.png)
+![Profile](./frontend/public/screenshots/profile.png)

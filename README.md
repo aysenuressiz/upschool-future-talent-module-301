@@ -1,22 +1,17 @@
 # UNISHELF
 
-PRD 1.0'a göre yapılandırılmış tam-yığın başlangıç iskeleti.
 
-## Klasörler
+### Home
+![Home](./public/screenshots/home.png)
 
-- `backend`: FastAPI tabanlı API, domain servisleri, streak ve metadata pipeline.
-- `app`: React + TypeScript istemci iskeleti, UI state machine ve 3D shelf katmanı.
-- `infra`: İzleme, kalite kapıları ve release doğrulama kontrol listeleri.
+### Library
+![Library](./public/screenshots/library.png)
 
-## MVP Sınırı
+### Scan
+![Scan](./public/screenshots/scan.png)
 
-MVP kapsamında:
-- Barkod ile kitap ekleme, metadata birleştirme ve OCR fallback.
-- Kütüphane yönetimi (`reading`, `finished`, `wishlist`).
-- 3D raf görünümü ve status bazlı yerleşim.
-- Streak motoru, grace period ve akıllı hatırlatma.
-- Offline kayıt ve senkronizasyon sözleşmesi.
+### Add
+![Add](./public/screenshots/add.png)
 
-MVP dışında (V2 hazırlığı):
-- Social feed ekranları.
-- `following` veri modeli altyapısı (şimdiden backend tarafında hazır).
+### Profile
+![Profile](./public/screenshots/profile.png)
